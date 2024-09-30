@@ -7,7 +7,7 @@ import {
   getSelectedUserRefresh,
 } from "../redux/chatSelectUserSlice";
 
-import ChatMessg from "./chatMessg";
+import ChatMessg from "./ChatMessg";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { setChatting } from "../redux/chattingSlice";
