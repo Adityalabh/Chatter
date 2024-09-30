@@ -33,7 +33,7 @@ function App() {
     
     if (user) {
       // for socket handshaking with server socket
-      const socketio = io("http://localhost:3001", {
+      const socketio = io("https://api.chatter.onrender.com", {
         query: {
           id: user?._id,
         },
