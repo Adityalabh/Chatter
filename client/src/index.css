@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+textarea,
+input[password] {
+    @apply rounded-xl border border-red-400 my-2 outline-none
+}
+
+button[type="submit"] {
+
+    @apply rounded-2xl py-2
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+:root {
+    --toastify-color-info: #3498db;
+    --toastify-color-success: #037c07;
+    --toastify-color-warning: #f1c40f;
+    --toastify-color-error: #e74c3c;
+
+}
+/* Hide scrollbar for modern browsers */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  
