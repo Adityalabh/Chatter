@@ -17,8 +17,13 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
+// app.use(cors({
+//     origin: process.env.CLIENT_URL || "http://localhost:5173", // Use an environment variable for deployment
+//     credentials: true,
+// }));
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173", // Use an environment variable for deployment
+    origin: process.env.URL , // Use an environment variable for deployment
     credentials: true,
 }));
 
