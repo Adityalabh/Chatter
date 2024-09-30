@@ -129,7 +129,6 @@ export const likeOrDeslike = async (req, res) => {
                 const messageOwnerSocketId = getReceiverSocketId(messageOwnerId);
                 io.to(messageOwnerSocketId).emit('notification', notification);
             }
-
             return res.json('user disliked');
         } else {
             // like
@@ -152,12 +151,10 @@ export const likeOrDeslike = async (req, res) => {
                 io.to(messageOwnerSocketId).emit('notification', notification);
             }
             return res.json('user liked');
-
         }
     } catch (error) {
         return res.json(error.message);
     }
-
 }
 
 export const getAllmessage = async (req, res) => {
@@ -196,10 +193,10 @@ export const getAllmessage = async (req, res) => {
 
         return res.status(200).json(allmessage);
     } catch (error) {
-        if (error.code === "ECONNRESET") {
-            console.log('ECONNRESET connection retrying...');
-            setTimeout(() => getAllmessage(), 1000);
-        }
+        // if (error.code === "ECONNRESET") {
+        //     console.log('ECONNRESET connection retrying...');
+        //     setTimeout(() => getAllmessage(), 1000);
+        // }
         res.json(error.message);
     }
 }

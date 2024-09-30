@@ -7,9 +7,9 @@ import Post from "../component/Post";
 import { ThemeProvider } from "styled-components";
 // import { darkTheme, lightTheme } from "../utils/theme";
 import { useSelector } from "react-redux";
-import { useGetAllMessg } from "../hooks/useGetAllMessg";
+// import { useGetAllMessg } from "../hooks/useGetAllMessg";
 import styled from "styled-components";
-import { useGetOtherUser } from "../hooks/useGetOtherUser";
+// import { useGetOtherUser } from "../hooks/useGetOtherUser";
 
 const HomeDiv = styled.div`
   background: ${({ theme }) => theme.color};
@@ -33,8 +33,8 @@ const Home = () => {
   }, []);
   // console.log(user._id);
 
-  useGetAllMessg(user?._id);
-  useGetOtherUser(user?._id);
+  // useGetAllMessg(user?._id);
+  // useGetOtherUser(user?._id);
 
   const redirect = (newredirect) => {
     setPostRedirect(newredirect);

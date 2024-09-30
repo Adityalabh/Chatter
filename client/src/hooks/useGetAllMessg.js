@@ -10,7 +10,7 @@ export const useGetAllMessg = (id) => {
     const { user } = useSelector((store) => store.user);
     const dispatch = useDispatch();
 
-    console.log("isActive", isActive);
+    console.log("isActive", isActive ,"userID---->",id);
 
     const fetchfollowMessg = async () => {
         try {

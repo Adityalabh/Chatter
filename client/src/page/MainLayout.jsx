@@ -3,10 +3,14 @@ import Menu from "../component/Menu";
 import { Outlet } from "react-router-dom";
 import { darkTheme, lightTheme } from "../utils/theme";
 import styled, { ThemeProvider } from "styled-components";
+import { useGetAllMessg } from "../hooks/useGetAllMessg";
+import { useGetOtherUser } from "../hooks/useGetOtherUser";
 
 const MainLayoutDiv = styled.div`
   background: ${({ theme }) => theme.color};
 `;
+useGetAllMessg(user?._id);
+useGetOtherUser(user?._id);
 
 const MainLayout = () => {
   const [mode, setMode] = useState(true);
