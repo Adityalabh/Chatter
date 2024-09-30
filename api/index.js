@@ -16,10 +16,12 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173", // Use an environment variable for deployment
     credentials: true,
 }));
+
 app.use(express.urlencoded({
     extended:true
 }));
@@ -38,8 +40,9 @@ app.get('/test', (req, res) => {
     res.json('test running');
     console.log('server running at port 3001');
 });
+const PORT = process.env.PORT || 3001;
 
-server.listen(3001);
+server.listen(PORT);
 
 databaseConnect();
 
