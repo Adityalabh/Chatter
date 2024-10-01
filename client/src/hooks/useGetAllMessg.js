@@ -34,11 +34,15 @@ export const useGetAllMessg = (id) => {
     }
 
     useEffect(() => {
+        if (!id) {
+            console.error("User ID is undefined");
+            return;
+        }
         if (isActive) {
             fetchallmessage();
         } else {
             fetchfollowMessg();
         }
-    }, [refresh, isActive]);
+    }, [refresh, isActive,id]);
 }
 
