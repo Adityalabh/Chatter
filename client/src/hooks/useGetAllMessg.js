@@ -40,8 +40,10 @@ export const useGetAllMessg = (id) => {
         }
         if (isActive) {
             fetchallmessage();
+            console.log('fetchallmessage');
         } else {
             fetchfollowMessg();
+            console.log('fetchfollowmessg');
         }
     }, [refresh, isActive,id]);
 }
