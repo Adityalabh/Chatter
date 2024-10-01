@@ -148,7 +148,7 @@ const Profile = () => {
     <ProfileDiv className="w-full lg:max-w-  ml-48  pr-5 ">
       {currProfile ? (
         <div className="flex gap-10  w-full pl-3">
-          <div className="w-[400px]">
+          <div className="min-w-[600px]">
             <Profilehead className="flex flex-grow items-center pl-2 py-2  w-[38rem]  fixed  bg-opacity-85 ">
               <Link to={`/`}>
                 <svg
@@ -173,7 +173,9 @@ const Profile = () => {
                 <p>700 posts</p>
               </div>
             </Profilehead>
+            
 
+            {/* banner Image */}
             <div className="mt-9 pt-4">
               <img
                 src={currProfile.bannerImage}
