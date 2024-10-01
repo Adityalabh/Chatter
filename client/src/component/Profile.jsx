@@ -148,7 +148,7 @@ const Profile = () => {
     <ProfileDiv className="w-full lg:max-w-  ml-48  pr-5 ">
       {currProfile ? (
         <div className="flex gap-10  w-full pl-3">
-          <div className="min-w-[600px]">
+          <div className="min-w-[500px]">
             <Profilehead className="flex flex-grow items-center pl-2 py-2  w-[38rem]  fixed  bg-opacity-85 ">
               <Link to={`/`}>
                 <svg
@@ -180,7 +180,7 @@ const Profile = () => {
               <img
                 src={currProfile.bannerImage}
                 alt="rocket"
-                className="h-[10rem] object-contain bg-black rounded-md"
+                className="h-[17rem] object-contain bg-black rounded-md"
               />
               <div className="  flex justify-between items-center ">
                 <Avatardiv className="flex  relative -top-12 left-3  w-[111px] h-[110px] rounded-full ">
