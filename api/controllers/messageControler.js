@@ -159,14 +159,14 @@ export const likeOrDeslike = async (req, res) => {
 
 export const getAllmessage = async (req, res) => {
     try {
-        const loggedUserId = req.params.id;
-        const loggedUser = await User.findById(loggedUserId);
+        const loggedUserId = await getloggeduserByReq(req);;
+        const loggedUser = await User.findById(loggedUserId.id);
 
         if (!loggedUser) {
             return res.json("user and its message not found");
         }
 
-        const loggedUsermessg = await Message.find({ senderId: loggedUserId }).sort({ createdAt: -1 })
+        const loggedUsermessg = await Message.find({ senderId: loggedUserId.id }).sort({ createdAt: -1 })
         // .populate({
         //     path: "comments", sort: { createdAt: -1 },
         //     populate: {
@@ -203,8 +203,8 @@ export const getAllmessage = async (req, res) => {
 
 export const getFollowingmessg = async (req, res) => {
     try {
-        const loggedUserId = req.params.id;
-        const loggedUser = await User.findById(loggedUserId);
+        const loggedUserId = await getloggeduserByReq(req);
+        const loggedUser = await User.findById(loggedUserId.id);
 
         if (!loggedUser) {
             res.json('no user found');

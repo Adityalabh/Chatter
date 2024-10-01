@@ -14,7 +14,7 @@ export const useGetAllMessg = (id) => {
 
     const fetchfollowMessg = async () => {
         try {
-            const res = await axios.get(`/message/followingmessg/${id}`);
+            const res = await axios.get(`/message/followingmessg`);
             dispatch(getallMessage(res?.data));
             // console.log("useGetAllMessg data", res?.data);
         } catch (error) {
@@ -24,7 +24,7 @@ export const useGetAllMessg = (id) => {
 
     const fetchallmessage = async () => {
         try {
-            const res = await axios.get(`/message/allmessages/${id}`);
+            const res = await axios.get(`/message/allmessages`);
             // console.log("all messaages", res?.data);
             dispatch(getallMessage(res?.data));
 
