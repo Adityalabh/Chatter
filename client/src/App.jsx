@@ -21,7 +21,7 @@ import { setOnlineUsers } from "./redux/chattingSlice";
 import RtNotificSlice, { setLikenotification } from "./redux/RtNotificSlice";
 import Bookmarks from "./component/Bookmarks";
 
-axios.defaults.baseURL = "https://chatter-6.onrender.com";
+axios.defaults.baseURL = "https://chatter-7.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     
     if (user) {
       // for socket handshaking with server socket
-      const socketio = io("https://chatter-6.onrender.com", {
+      const socketio = io("https://chatter-7.onrender.com", {
         query: {
           id: user?._id,
         },
