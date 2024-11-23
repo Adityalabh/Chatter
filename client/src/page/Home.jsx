@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 // import { useGetAllMessg } from "../hooks/useGetAllMessg";
 import styled from "styled-components";
+import { useGetAllMessg } from "../hooks/useGetAllMessg";
 // import { useGetOtherUser } from "../hooks/useGetOtherUser";
 
 const HomeDiv = styled.div`
@@ -22,6 +23,7 @@ const PHomeDiv = styled.div`
 const Home = () => {
   const [postRedirect, setPostRedirect] = useState(false);
   // const [mode, setMode] = useState(true);
+  const {message,isActive} = useSelector((store)=> store.message);
   const navigate = useNavigate();
 
   const { user } = useSelector((store) => store.user);
@@ -33,8 +35,10 @@ const Home = () => {
   }, []);
   // console.log(user._id);
 
-  // useGetAllMessg(user?._id);
+  useGetAllMessg(user?._id);
   // useGetOtherUser(user?._id);
+
+  console.log('message',message,isActive);
 
   const redirect = (newredirect) => {
     setPostRedirect(newredirect);
@@ -58,6 +62,7 @@ const Home = () => {
         <div className="flex justify-start w-full"> 
           <RightPanel />
         </div>
+        
         {postRedirect && <Post redirect={redirect} />}
       </HomeDiv>
     </PHomeDiv>

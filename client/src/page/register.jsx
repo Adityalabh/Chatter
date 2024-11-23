@@ -187,7 +187,7 @@ const Register = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col">
-              <h1 className="text-4xl font-bold my-2">Happening now.</h1>
+              <h1 className="text-4xl font-bold my-2">Happening Now.</h1>
               <h3 className="font-bold text-xl">Sign Up</h3>
               <input
                 type="text"

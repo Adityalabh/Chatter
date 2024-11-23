@@ -10,7 +10,7 @@ router.route('/create').post(isAuthenticate, upload, create);
 router.route('/delete/:id').delete(isAuthenticate, deletemessage);
 router.route('/like/:id').put(isAuthenticate, likeOrDeslike);
 router.route('/allmessages').get(getAllmessage);
-router.route('/followingmessg/:id').get(getFollowingmessg);
+router.route('/followingmessg').get(getFollowingmessg);
 router.route('/post/comment/:id').post(isAuthenticate, setComments);
 router.route('/allComments/:id').get(getComments);
 router.route(`/commentDelete/:id`).post(isAuthenticate,commentDelete);

@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 console.log(__dirname);
 dotenv.config();
 // const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -24,7 +24,7 @@ app.use(cookieParser());
 // }));
 
 app.use(cors({
-    origin: process.env.URL , // Use an environment variable for deployment
+    origin: process.env.CLIENT_URL || 3000, // Use an environment variable for deployment
     credentials: true,
 }));
 
@@ -44,12 +44,12 @@ app.get("*",(req,res)=>{
 
 app.get('/test', (req, res) => {
     res.json('test running');
-    console.log('server running at port 3001');
+    console.log(`server running at port ${PORT}`);
 });
 
 server.listen(PORT,()=>{
     databaseConnect();
-    console.log(`connected to server${PORT}`);
+    console.log(`connected  server listening to port ${PORT}`);
 });
 
 

@@ -25,7 +25,7 @@ export const useGetAllMessg = (id) => {
     const fetchallmessage = async () => {
         try {
             const res = await axios.get(`/message/allmessages`);
-            // console.log("all messaages", res?.data);
+            console.log("all messaages", res?.data);
             dispatch(getallMessage(res?.data));
 
         } catch (error) {
@@ -38,7 +38,7 @@ export const useGetAllMessg = (id) => {
             console.error("User ID is undefined");
             return;
         }
-        if (isActive) {
+        if (isActive===true) {
             fetchallmessage();
             console.log('fetchallmessage');
         } else {

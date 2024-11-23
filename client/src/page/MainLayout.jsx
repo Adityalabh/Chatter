@@ -14,9 +14,12 @@ const MainLayoutDiv = styled.div`
 const MainLayout = () => {
   const [mode, setMode] = useState(true);
   const {user} = useSelector(store => store.user);
-
+  const {message} = useSelector(store => store.message);
+  
   useGetAllMessg(user?._id);
   useGetOtherUser(user?._id);
+
+  console.log(message,user._id);
 
   let themeChng = () => {
     setMode(!mode);

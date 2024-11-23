@@ -12,6 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user } = useSelector((store) => store.user);
+  const {isActive} = useSelector((store)=> store.message);
   // const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Login = () => {
       setEmail("");
       setPassword("");
       dispatch(getUser(res?.data));
+      
       console.log("loggin page user id-->", res?.data._id);
       navigate("/");
     } catch (err) {
@@ -61,7 +63,7 @@ const Login = () => {
           <div>
             <form onSubmit={handleLogin}>
               <div className="flex flex-col w-[17rem]">
-                <h1 className="text-[2.2rem] font-semibold ">Happening now.</h1>
+                <h1 className="text-[2.2rem] font-semibold ">Happening Now.</h1>
                 <h3 className=" font-bold text-xl text-red-600">Login</h3>
                 <input
                   type="email"

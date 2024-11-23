@@ -21,19 +21,18 @@ import { setOnlineUsers } from "./redux/chattingSlice";
 import RtNotificSlice, { setLikenotification } from "./redux/RtNotificSlice";
 import Bookmarks from "./component/Bookmarks";
 
-axios.defaults.baseURL = "https://chatter-8.onrender.com";
+axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
 
 function App() {
   const { user } = useSelector((store) => store.user);
-  const {socket} = useSelector(store => store.socketio);
+  const { socket } = useSelector((store) => store.socketio);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    if (user) {
+    if (user && !socket) {
       // for socket handshaking with server socket
-      const socketio = io("https://chatter-8.onrender.com", {
+      const socketio = io("http://localhost:3000", {
         query: {
           id: user?._id,
         },
@@ -46,23 +45,24 @@ function App() {
         dispatch(setOnlineUsers(onlineUser));
       });
 
-      socketio.on('notification',(notification)=>{
+      socketio.on("notification", (notification) => {
         dispatch(setLikenotification(notification));
       });
 
       // if user not close the connection properly
       return () => {
-        socketio.close();
-        dispatch(setSocket(null));
+        if (socketio) {
+          socketio.close();
+          dispatch(setSocket(null));
+        }
       };
       // if no user
-    } else if(socket){
+    } else if (socket) {
       socket.close();
       dispatch(setSocket(null));
     }
-  }, [user, dispatch]);
+  }, [user, dispatch,socket]);
 
-  
   return (
     <div className="">
       <BrowserRouter>
@@ -73,7 +73,7 @@ function App() {
 
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/chatusers" element={<ChatUser />} />
-            <Route path="/bookmarks" element={<Bookmarks/>}/>
+            <Route path="/bookmarks" element={<Bookmarks />} />
           </Route>
 
           <Route path="/login" element={<Login />} />
