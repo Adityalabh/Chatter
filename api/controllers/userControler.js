@@ -39,7 +39,7 @@ export const Signup = async (req, res) => {
         });
         // const {password ,...userWithoutPassword} = userDoc._doc;
         // return res.status(201).json(userDoc.select('-password'));
-        const { password: _, ...userWithoutPassword } = userDoc._doc;
+        const { password: _, ...userWithoutPassword } = userDoc._doc;//sending no password containing data to client
 
         return res.status(201).json(userWithoutPassword);
     }

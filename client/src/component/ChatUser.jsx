@@ -16,8 +16,7 @@ import styled from "styled-components";
 let OtherUserDiv = styled.div`
   background: ${({ theme }) => theme.color};
   color: ${({ theme }) => theme.textPrimary};
-    border-right:1px solid ${({theme})=> theme.textSecondary};
-
+  border-right: 1px solid ${({ theme }) => theme.textSecondary};
 `;
 
 let SelectedDiv = styled.div`
@@ -35,7 +34,7 @@ let Hr = styled.hr`
 let AllUsers = styled.div`
   &:hover {
     background: ${({ theme }) => theme.bgLight};
-    border-left:2px solid ${({theme})=> theme.textSecondary};
+    border-left: 2px solid ${({ theme }) => theme.textSecondary};
   }
 `;
 
