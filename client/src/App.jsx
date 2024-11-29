@@ -33,13 +33,13 @@ function App() {
   useEffect(() => {
     if (user) {
       // for socket handshaking with server socket
-      const socketio = io("http://localhost:3000", {
+      const socketio = io("https://chatter-xrmf.onrender.com", {
         query: {
           id: user?._id,
         },
         transports: ["websocket"],
       });
-      dispatch(setSocket(socketio));
+      dispatch(setSocket(socketio));  
 
       // listen all events
       socketio.on("getOnlineUser", (onlineUser) => {
