@@ -26,7 +26,7 @@ app.use(cookieParser());
 // }));
 
 app.use(cors({
-    origin: process.env.URL , // Use an environment variable for deployment
+    origin:'https://chatter-xrmf.onrender.com', // Use an environment variable for deployment
     // origin:'http://localhost:5173',
     credentials: true,
 }));
