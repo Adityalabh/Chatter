@@ -18,7 +18,7 @@ const MainLayout = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    if (!user?._id) {
+    if (!user._id) {
       navigate("/login");
     }
   }, []);
