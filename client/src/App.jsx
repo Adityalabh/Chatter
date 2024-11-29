@@ -21,8 +21,8 @@ import { setOnlineUsers } from "./redux/chattingSlice";
 import RtNotificSlice, { setLikenotification } from "./redux/RtNotificSlice";
 import Bookmarks from "./component/Bookmarks";
 
-axios.defaults.baseURL = "http://localhost:3000";
-// axios.defaults.baseURL = "https://chatter-8.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://chatter-xrmf.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
