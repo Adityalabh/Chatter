@@ -17,7 +17,7 @@ import { setLikenotification } from "../redux/RtNotificSlice";
 const MenuCont = styled.div`
   background: ${({ theme }) => theme.color};
   color: ${({ theme }) => theme.textPrimary};
-  border-right: 1px solid  ${({ theme }) => theme.textSecondary};
+  border-right: 1px solid  ${({ theme }) => theme.bgLight};
   // mode ? "hover:bg-gray-300" : "hover:bg-gray-100"
 `;
 

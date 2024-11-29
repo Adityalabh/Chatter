@@ -26,6 +26,11 @@ const ProfileDiv = styled.div`
 
 const Profilehead = styled.div`
   background-color: ${({ theme }) => theme.color};
+  border-bottom:1px solid ${({theme}) => theme.bgLight};
+`;
+
+const ProfileCont = styled.div`
+   border-right: 1px solid ${({ theme }) => theme.bgLight};
 `;
 
 const Postbody = styled.div`
@@ -74,7 +79,6 @@ const Profile = () => {
       toast.error("something went wrong");
     }
   };
-
 
   let handleImage = async (e) => {
     e.preventDefault();
@@ -142,14 +146,16 @@ const Profile = () => {
     );
   }
 
-  {console.log(open);}
+  {
+    console.log(open);
+  }
 
   return (
-    <ProfileDiv className="w-full lg:max-w-  ml-48  pr-5 ">
+    <ProfileDiv className="w-full  ml-48  pr-5 ">
       {currProfile ? (
-        <div className="flex gap-10  w-full pl-3">
-          <div className="min-w-[500px]">
-            <Profilehead className="flex flex-grow items-center pl-2 py-2  w-[38rem]  fixed  bg-opacity-85 ">
+        <div className="flex gap- w-full ">
+          <ProfileCont className="w-4/6 xl:w-3/6 border-r border-black pr-2 ">
+            <Profilehead className="fixed w-3/6 flex items-center gap-3 px-3">
               <Link to={`/`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,21 +172,20 @@ const Profile = () => {
                   />
                 </svg>
               </Link>
-              <div className="">
+              <div className="w-inherit">
                 <h1 className=" text-xl  font-semibold font-sans ">
                   {currProfile.userName}
                 </h1>
                 <p>700 posts</p>
               </div>
             </Profilehead>
-            
 
             {/* banner Image */}
             <div className="mt-9 pt-4">
               <img
                 src={currProfile.bannerImage}
                 alt="rocket"
-                className="h-[17rem] object-contain bg-black rounded-md"
+                className="w-inherit  object-cover ml-1  rounded-md "
               />
               <div className="  flex justify-between items-center ">
                 <Avatardiv className="flex  relative -top-12 left-3  w-[111px] h-[110px] rounded-full ">
@@ -221,8 +226,9 @@ const Profile = () => {
                       >
                         Edit Profile
                       </button>
-                      {open && (<Edit user={user} open={open} setOpen={setOpen}/>)}
-
+                      {open && (
+                        <Edit user={user} open={open} setOpen={setOpen} />
+                      )}
                     </div>
                   ) : (
                     <div className=" px-7 py-2 rounded-full bg-red-600 text-white font-bold ">
@@ -297,8 +303,10 @@ const Profile = () => {
                 ))}
               </Postbody>
             </div>
+          </ProfileCont>
+          <div className="hidden xl:block fixed right-8">
+            <RightPanel />
           </div>
-          <RightPanel />
         </div>
       ) : (
         <div className="flex justify-center mt-7">

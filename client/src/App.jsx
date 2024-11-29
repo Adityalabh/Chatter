@@ -21,7 +21,8 @@ import { setOnlineUsers } from "./redux/chattingSlice";
 import RtNotificSlice, { setLikenotification } from "./redux/RtNotificSlice";
 import Bookmarks from "./component/Bookmarks";
 
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://chatter-8.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user && !socket) {
+    if (user) {
       // for socket handshaking with server socket
       const socketio = io("http://localhost:3000", {
         query: {
@@ -51,17 +52,15 @@ function App() {
 
       // if user not close the connection properly
       return () => {
-        if (socketio) {
           socketio.close();
           dispatch(setSocket(null));
-        }
       };
       // if no user
     } else if (socket) {
       socket.close();
       dispatch(setSocket(null));
     }
-  }, [user, dispatch,socket]);
+  }, [user, dispatch]);
 
   return (
     <div className="">

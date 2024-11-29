@@ -33,7 +33,8 @@ const RightPanel = () => {
 
       <div className="pt-2">
         <h1 className="text-2xl font-bold mx-3 my-4">Who to follow</h1>
-        {otherUser?.map((otherusers) => (
+        {!otherUser.length === 0 && <div>No other user available</div>}
+        {otherUser.length > 0 && otherUser?.map((otherusers) => (
           <Follows key={otherusers._id} otherusers={otherusers} />
         ))}
       </div>

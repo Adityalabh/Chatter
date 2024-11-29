@@ -5,7 +5,7 @@ const userSlice = createSlice({
     name:"user",
     initialState:{
         user:null,
-        otherUser:null,
+        otherUser:[],
         currProfile:null,
         userRefresh:false,
         otherUserRefresh:false,

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Menu from "../component/Menu";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { darkTheme, lightTheme } from "../utils/theme";
 import styled, { ThemeProvider } from "styled-components";
 import { useGetAllMessg } from "../hooks/useGetAllMessg";
@@ -15,11 +15,18 @@ const MainLayout = () => {
   const [mode, setMode] = useState(true);
   const {user} = useSelector(store => store.user);
   const {message} = useSelector(store => store.message);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, []);
   
   useGetAllMessg(user?._id);
   useGetOtherUser(user?._id);
 
-  console.log(message,user._id);
+  console.log('message',message,user._id);
 
   let themeChng = () => {
     setMode(!mode);

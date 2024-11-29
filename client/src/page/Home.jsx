@@ -23,10 +23,10 @@ const PHomeDiv = styled.div`
 const Home = () => {
   const [postRedirect, setPostRedirect] = useState(false);
   // const [mode, setMode] = useState(true);
-  const {message,isActive} = useSelector((store)=> store.message);
+  const { message, isActive } = useSelector((store) => store.message);
   const navigate = useNavigate();
 
-  const { user } = useSelector((store) => store.user);
+  const { user, otherUser } = useSelector((store) => store.user);
 
   useEffect(() => {
     if (!user) {
@@ -35,10 +35,10 @@ const Home = () => {
   }, []);
   // console.log(user._id);
 
-  useGetAllMessg(user?._id);
+  // useGetAllMessg(user?._id);
   // useGetOtherUser(user?._id);
 
-  console.log('message',message,isActive);
+  // console.log('message',message,isActive);
 
   const redirect = (newredirect) => {
     setPostRedirect(newredirect);
@@ -59,9 +59,12 @@ const Home = () => {
           <Outlet />
         </div>
 
-        <div className="flex justify-start w-full"> 
-          <RightPanel />
-        </div>
+        {otherUser === null || otherUser.length === 0 && <div>No other user Availbale</div>}
+        {otherUser.length > 0 && (
+          <div className="flex fixed right-12">
+            <RightPanel />
+          </div>
+        )}
         
         {postRedirect && <Post redirect={redirect} />}
       </HomeDiv>

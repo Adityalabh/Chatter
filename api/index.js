@@ -12,7 +12,9 @@ import path from 'path';
 const __dirname = path.resolve();
 console.log(__dirname);
 dotenv.config();
+
 // const app = express();
+console.log('URL',process.env.URL);
 const PORT = process.env.PORT;
 
 app.use(express.json());
@@ -24,7 +26,8 @@ app.use(cookieParser());
 // }));
 
 app.use(cors({
-    origin: process.env.CLIENT_URL || 3000, // Use an environment variable for deployment
+    origin: process.env.CLIENT_URL , // Use an environment variable for deployment
+    // origin:'http://localhost:5173',
     credentials: true,
 }));
 

@@ -190,6 +190,7 @@ export const getAllmessage = async (req, res) => {
         if (!allmessage.length) {
             return res.status(204).json([]);
         }
+        console.log(allmessage);
 
         return res.status(200).json(allmessage);
     } catch (error) {
