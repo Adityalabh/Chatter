@@ -26,7 +26,7 @@ app.use(cookieParser());
 // }));
 
 app.use(cors({
-    origin: process.env.CLIENT_URL , // Use an environment variable for deployment
+    origin: process.env.URL , // Use an environment variable for deployment
     // origin:'http://localhost:5173',
     credentials: true,
 }));
